@@ -8,16 +8,16 @@
   ],
   "routes": [
     {
+      "src": "/",
+      "dest": "/Shasary_IA_Loading_Screen.html"
+    },
+    {
       "src": "/api/config",
-      "dest": "server.js"
+      "dest": "/server.js"
     },
     {
       "src": "/api/respond",
-      "dest": "server.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "server.js"
+      "dest": "/server.js"
     }
   ]
 }
