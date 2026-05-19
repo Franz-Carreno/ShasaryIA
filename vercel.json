@@ -13,11 +13,15 @@
     },
     {
       "src": "/api/config",
-      "dest": "/server.js"
+      "dest": "server.js"
     },
     {
       "src": "/api/respond",
-      "dest": "/server.js"
+      "dest": "server.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "server.js"
     }
   ]
 }
