@@ -6,6 +6,8 @@ const { GoogleAuth } = require('google-auth-library');
 require('dotenv').config({ path: path.join(__dirname, '.env') });
 
 const app = express();
+app.use(express.static(__dirname));
+
 app.use(express.json());
 // Simple CORS allowing local testing from other ports (e.g., Live Server :5500)
 app.use((req, res, next) => {
