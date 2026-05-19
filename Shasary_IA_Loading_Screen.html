@@ -158,21 +158,7 @@
 
 <!-- Google Sign-In Button Container -->
 <div class="w-full flex justify-center py-2">
-<div id="g_id_onload"
-         data-client_id=""
-         data-context="signin"
-         data-ux_mode="popup"
-         data-callback="handleCredentialResponse"
-         data-auto_prompt="false">
-</div>
-<div class="g_id_signin"
-         data-type="standard"
-         data-shape="pill"
-         data-theme="filled_black"
-         data-text="signin_with"
-         data-size="large"
-         data-logo_alignment="left">
-</div>
+<div id="google-btn-container"></div>
 </div>
 
 <!-- Developer Fallback Login Button -->
@@ -229,10 +215,37 @@
       if (res.ok) {
         const config = await res.json();
         if (config.googleClientId) {
-          const gIdOnload = document.getElementById('g_id_onload');
-          if (gIdOnload) {
-            gIdOnload.setAttribute('data-client_id', config.googleClientId);
-          }
+          const initGoogle = () => {
+            if (typeof google !== 'undefined' && google.accounts && google.accounts.id) {
+              google.accounts.id.initialize({
+                client_id: config.googleClientId,
+                callback: window.handleCredentialResponse,
+                context: 'signin',
+                ux_mode: 'popup',
+                auto_prompt: false
+              });
+              
+              const btnContainer = document.getElementById('google-btn-container');
+              if (btnContainer) {
+                google.accounts.id.renderButton(
+                  btnContainer,
+                  { 
+                    type: "standard",
+                    shape: "pill",
+                    theme: "filled_black",
+                    text: "signin_with",
+                    size: "large",
+                    logo_alignment: "left"
+                  }
+                );
+              }
+            } else {
+              setTimeout(initGoogle, 100);
+            }
+          };
+          initGoogle();
+        } else {
+          console.warn("Google Client ID no configurado en el backend");
         }
       }
     } catch (err) {
