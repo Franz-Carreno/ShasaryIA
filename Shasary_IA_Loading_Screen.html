@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Shasary.IA - Inicializando</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600&amp;family=JetBrains+Mono:wght@400&amp;family=Sora:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Identity Services -->
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#10131a",
+                    "on-surface": "#e1e2eb",
+                    "on-error": "#690005",
+                    "surface-container-low": "#191c22",
+                    "primary-fixed": "#ffdada",
+                    "surface-container-lowest": "#0b0e14",
+                    "secondary-fixed-dim": "#c2c6d6",
+                    "on-primary-fixed": "#40000c",
+                    "surface-dim": "#10131a",
+                    "surface-bright": "#363940",
+                    "on-error-container": "#ffdad6",
+                    "surface-variant": "#32353c",
+                    "on-primary-container": "#5b0015",
+                    "secondary-fixed": "#dee2f3",
+                    "on-surface-variant": "#e6bcbd",
+                    "on-tertiary-container": "#002f33",
+                    "primary": "#ffb3b5",
+                    "outline": "#ad8888",
+                    "on-primary-fixed-variant": "#920027",
+                    "error": "#ffb4ab",
+                    "tertiary": "#00dbe9",
+                    "on-primary": "#680019",
+                    "surface-container-high": "#272a31",
+                    "primary-container": "#ff5167",
+                    "outline-variant": "#5d3f40",
+                    "tertiary-fixed": "#7df4ff",
+                    "inverse-on-surface": "#2e3037",
+                    "on-secondary-fixed-variant": "#424754",
+                    "tertiary-container": "#00a0aa",
+                    "on-tertiary-fixed": "#002022",
+                    "error-container": "#93000a",
+                    "on-secondary": "#2b303d",
+                    "on-tertiary": "#00363a",
+                    "on-secondary-container": "#b4b8c8",
+                    "tertiary-fixed-dim": "#00dbe9",
+                    "surface-tint": "#ffb3b5",
+                    "background": "#10131a",
+                    "inverse-primary": "#be0036",
+                    "surface-container": "#1d2026",
+                    "inverse-surface": "#e1e2eb",
+                    "secondary-container": "#444956",
+                    "on-secondary-fixed": "#161b27",
+                    "on-tertiary-fixed-variant": "#004f54",
+                    "surface-container-highest": "#32353c",
+                    "secondary": "#c2c6d6",
+                    "primary-fixed-dim": "#ffb3b5",
+                    "on-background": "#e1e2eb"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "0.5rem",
+                    "container-max": "1280px",
+                    "gutter": "1.5rem",
+                    "stack-md": "1rem",
+                    "stack-lg": "2rem",
+                    "sidebar-width": "280px",
+                    "input-bottom-offset": "2rem"
+            },
+            "fontFamily": {
+                    "body-md": ["Geist"],
+                    "headline-lg-mobile": ["Sora"],
+                    "code-sm": ["JetBrains Mono"],
+                    "label-caps": ["Sora"],
+                    "headline-lg": ["Sora"],
+                    "display-lg": ["Sora"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "code-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        /* Custom Sci-Fi Grid Background */
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 179, 181, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 179, 181, 0.05) 1px, transparent 1px);
+        }
+        
+        /* Neon Glow utility */
+        .shadow-neon {
+            box-shadow: 0 0 15px rgba(255, 81, 103, 0.8), 0 0 30px rgba(255, 81, 103, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface h-screen w-screen overflow-hidden flex items-center justify-center relative font-body-md">
+<!-- Atmospheric Deep Space Background Layers -->
+<div class="absolute inset-0 bg-grid-pattern z-0"></div>
+<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#10131a_80%)] z-0"></div>
+<!-- Main Glassmorphic Container -->
+<main class="relative z-10 flex flex-col items-center justify-center w-[90%] max-w-[400px] p-10 rounded-2xl bg-surface-container-low/20 backdrop-blur-2xl border border-primary/20 shadow-[0_0_60px_rgba(255,179,181,0.05)]">
+<!-- Logo Container -->
+<div class="relative w-48 h-48 mb-12 flex items-center justify-center">
+<!-- Ambient pulse behind logo -->
+<div class="absolute inset-0 bg-primary/20 rounded-full blur-3xl animate-[pulse_3s_ease-in-out_infinite]"></div>
+<img src="@file:logo.png" onerror="this.onerror=null;this.src='logo.png';" alt="Logo de Shasary.IA" class="w-full h-full object-cover"/>
+</div>
+<!-- Loading Interface -->
+<div id="loading-interface" class="w-full flex flex-col items-center gap-stack-sm">
+<!-- Progress Bar Track -->
+<div class="w-full h-1.5 bg-surface-variant rounded-full overflow-hidden relative border border-surface-container-high">
+<!-- Progress Fill -->
+<div id="progress-fill" class="absolute top-0 left-0 h-full w-0 bg-primary-container rounded-full shadow-neon transition-all duration-200 ease-out"></div>
+</div>
+<!-- System Status Text -->
+<div class="flex items-center gap-2 mt-2">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<p class="font-code-sm text-code-sm text-primary/80 uppercase tracking-widest">
+                    Estableciendo enlace neuronal
+                </p>
+</div>
+<div class="text-center mt-8">
+<p id="loading-status" class="text-on-surface-variant mb-6">Preparando sistemas</p>
+</div>
+</div>
+
+<!-- Login Interface (Initially hidden) -->
+<div id="login-interface" class="w-full flex flex-col items-center gap-4 hidden">
+<div class="text-center mb-6">
+<h3 class="font-headline-lg text-[22px] text-primary tracking-wide mb-2">Identificación Requerida</h3>
+<p class="text-on-surface-variant text-[14px]">Por favor, inicia sesión para acceder al Núcleo de IA</p>
+</div>
+
+<!-- Google Sign-In Button Container -->
+<div class="w-full flex justify-center py-2">
+<div id="g_id_onload"
+         data-client_id=""
+         data-context="signin"
+         data-ux_mode="popup"
+         data-callback="handleCredentialResponse"
+         data-auto_prompt="false">
+</div>
+<div class="g_id_signin"
+         data-type="standard"
+         data-shape="pill"
+         data-theme="filled_black"
+         data-text="signin_with"
+         data-size="large"
+         data-logo_alignment="left">
+</div>
+</div>
+
+<!-- Developer Fallback Login Button -->
+<button id="dev-login-btn" class="w-full mt-4 py-2.5 rounded-full border border-primary/30 text-primary hover:bg-primary/10 transition-colors font-label-caps text-label-caps uppercase tracking-wider text-[12px] active:scale-95">
+    Acceso de Desarrollador (Simulado)
+</button>
+</div>
+</main>
+<script>
+  const targetPage = 'Shasary_IA_Chat_Interface.html';
+  const statusNode = document.getElementById('loading-status');
+  const progressFill = document.getElementById('progress-fill');
+  const loadingInterface = document.getElementById('loading-interface');
+  const loginInterface = document.getElementById('login-interface');
+  const devLoginBtn = document.getElementById('dev-login-btn');
+  
+  let progress = 0;
+  let dots = 0;
+  const intervalMs = 50;
+  const totalDurationMs = 2000;
+  const progressStep = 100 * intervalMs / totalDurationMs;
+
+  function decodeJwt(token) {
+    try {
+      const base64Url = token.split('.')[1];
+      const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+      const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+      }).join(''));
+      return JSON.parse(jsonPayload);
+    } catch (e) {
+      return null;
+    }
+  }
+
+  window.handleCredentialResponse = function(response) {
+    const payload = decodeJwt(response.credential);
+    if (payload) {
+      const user = {
+        name: payload.name || "Usuario de Google",
+        email: payload.email || "",
+        picture: payload.picture || ""
+      };
+      localStorage.setItem('shasary_user', JSON.stringify(user));
+      window.location.href = targetPage;
+    } else {
+      alert("Error al validar credenciales de Google");
+    }
+  };
+
+  async function fetchConfigAndInit() {
+    try {
+      const res = await fetch('/api/config');
+      if (res.ok) {
+        const config = await res.json();
+        if (config.googleClientId) {
+          const gIdOnload = document.getElementById('g_id_onload');
+          if (gIdOnload) {
+            gIdOnload.setAttribute('data-client_id', config.googleClientId);
+          }
+        }
+      }
+    } catch (err) {
+      console.warn("No se pudo obtener el Client ID del backend", err);
+    }
+  }
+
+  fetchConfigAndInit();
+
+  const updateLoader = () => {
+    if (progressFill) {
+      progress = Math.min(100, progress + progressStep);
+      progressFill.style.width = `${progress}%`;
+    }
+
+    dots = (dots + 1) % 4;
+    if (statusNode) {
+      statusNode.textContent = progress >= 100 ? 'Sistemas listos' : 'Preparando sistemas' + '.'.repeat(dots);
+    }
+
+    if (progress >= 100) {
+      clearInterval(loaderTimer);
+      setTimeout(() => {
+        const user = localStorage.getItem('shasary_user');
+        if (user) {
+          window.location.href = targetPage;
+        } else {
+          loadingInterface.classList.add('hidden');
+          loginInterface.classList.remove('hidden');
+        }
+      }, 300);
+    }
+  };
+
+  const loaderTimer = setInterval(updateLoader, intervalMs);
+  updateLoader();
+
+  devLoginBtn.addEventListener('click', () => {
+    const user = {
+      name: "Desarrollador Shasary",
+      email: "dev@shasary.ia",
+      picture: "https://lh3.googleusercontent.com/a/default-user"
+    };
+    localStorage.setItem('shasary_user', JSON.stringify(user));
+    window.location.href = targetPage;
+  });
+</script>
+<!-- Decorative Corner Accents (Bio-Mechanical touch) -->
+<div class="absolute top-8 left-8 w-16 h-16 border-t-2 border-l-2 border-primary/20 rounded-tl-xl z-0"></div>
+<div class="absolute bottom-8 right-8 w-16 h-16 border-b-2 border-r-2 border-primary/20 rounded-br-xl z-0"></div>
+</body></html>
