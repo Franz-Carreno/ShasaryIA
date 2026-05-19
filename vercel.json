@@ -4,6 +4,14 @@
     {
       "src": "server.js",
       "use": "@vercel/node"
+    },
+    {
+      "src": "*.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "*.png",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
@@ -12,11 +20,7 @@
       "dest": "/Shasary_IA_Loading_Screen.html"
     },
     {
-      "src": "/api/config",
-      "dest": "/server.js"
-    },
-    {
-      "src": "/api/respond",
+      "src": "/api/(.*)",
       "dest": "/server.js"
     }
   ]
